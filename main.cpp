@@ -2,6 +2,7 @@
 #include <chrono>
 #include <windows.h>
 #include <stdlib.h>
+#include <fstream>
 
 using namespace std;
 using namespace std::chrono;
@@ -383,9 +384,15 @@ void multiplayer() {
 
 void startGame() {
     int menuAnswer;
+    string title;
 
     system("cls");
-    cout << "Tictactoe Game" << endl;
+    ifstream file("asset/tictactoe.txt");
+    while (getline(file, title)) {
+        cout << title + "\n";
+    }
+    file.close();
+
     cout << "Menu:" << endl;
     cout << "1. Single player" << endl;
     cout << "2. Multiplayer" << endl;
